@@ -6,7 +6,7 @@ const Navbar = () => {
   const [cartItems, setCartItems] = useState(3); // Simulate cart item count
 
   return (
-    <nav className="bg-white shadow-sm py-4 px-8 flex justify-between items-center">
+    <nav className="bg-white shadow-sm py-4 px-8 flex justify-between items-center sticky top-0 z-50">
       {/* Left: Brand */}
       <div className="text-2xl font-bold flex items-center">
         <span className="text-gray-800">Plant</span>
