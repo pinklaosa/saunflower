@@ -1,5 +1,7 @@
+import PhotoEditor from "@/components/PhotoEditor";
+
 const Design = () => {
-  return <></>;
+  return <PhotoEditor />;
 };
 
 export default Design;
