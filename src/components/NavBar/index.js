@@ -6,31 +6,31 @@ const Navbar = () => {
   const [cartItems, setCartItems] = useState(3); // Simulate cart item count
 
   return (
-    <nav className="bg-white shadow-sm py-4 px-8 flex justify-between items-center sticky top-0 z-50">
+    <nav className="bg-white shadow-md py-4 px-8 flex justify-between items-center sticky top-0 z-50 transition-all duration-300">
       {/* Left: Brand */}
-      <div className="text-2xl font-bold flex items-center">
-        <span className="text-gray-800">Plant</span>
+      <div className="text-2xl font-bold flex items-center text-gray-800 hover:text-green-500 transition-colors duration-200">
+        <span>Plant</span>
         <span className="ml-1 h-2 w-2 bg-green-500 rounded-full"></span>
       </div>
 
       {/* Center: Links */}
-      <div className="space-x-6">
-        <Link href="/" className="text-gray-600 hover:text-black">
+      <div className="space-x-8 hidden md:flex">
+        <Link href="/" className="text-gray-600 hover:text-green-500 transition-colors duration-200">
           Home
         </Link>
-        <Link href="#" className="text-gray-600 hover:text-black">
+        <Link href="#" className="text-gray-600 hover:text-green-500 transition-colors duration-200">
           Store
         </Link>
-        <Link href="#" className="text-gray-600 hover:text-black">
+        <Link href="#" className="text-gray-600 hover:text-green-500 transition-colors duration-200">
           About
         </Link>
-        <Link href="#" className="text-gray-600 hover:text-black">
+        <Link href="#" className="text-gray-600 hover:text-green-500 transition-colors duration-200">
           News
         </Link>
-        <Link href="/contact" className="text-gray-600 hover:text-black">
+        <Link href="/contact" className="text-gray-600 hover:text-green-500 transition-colors duration-200">
           Contact
         </Link>
-        <Link href="/design" className="text-gray-600 hover:text-black">
+        <Link href="/design" className="text-gray-600 hover:text-green-500 transition-colors duration-200">
           Design
         </Link>
       </div>
@@ -38,13 +38,13 @@ const Navbar = () => {
       {/* Right: Search and Cart */}
       <div className="flex items-center space-x-4">
         {/* Search Icon */}
-        <button className="text-gray-600 hover:text-black">
+        <button className="text-gray-600 hover:text-green-500 transition-colors duration-200">
           <SearchIcon className="h-6 w-6" />
         </button>
 
         {/* Cart with Badge */}
         <div className="relative">
-          <button className="text-gray-600 hover:text-black">
+          <button className="text-gray-600 hover:text-green-500 transition-colors duration-200">
             <ShoppingCartIcon className="h-6 w-6" />
           </button>
           {cartItems > 0 && (

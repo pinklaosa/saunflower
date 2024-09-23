@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { ShoppingCart, XCircle } from "lucide-react"; // Import close icon
+import { ShoppingCart, XCircle } from "lucide-react";
 
 const plants = [
   {
@@ -43,7 +43,7 @@ const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
     items: 3,
-    slidesToSlide: 1, // Moves one item at a time
+    slidesToSlide: 1,
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
@@ -66,7 +66,10 @@ const HomePage = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 py-8">
-      <h1 className="text-2xl font-bold text-center text-gray-800 mb-8">
+      <Head>
+        <title>Plant Collection</title>
+      </Head>
+      <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
         Discover Our Plant Collection
       </h1>
 
@@ -74,7 +77,7 @@ const HomePage = () => {
       <div className="fixed bottom-8 right-8 z-50">
         <button
           onClick={handleModalToggle}
-          className="bg-blue-500 text-white py-2 px-6 rounded-full hover:bg-blue-600 transition-colors duration-300"
+          className="bg-blue-600 text-white py-2 px-6 rounded-full hover:bg-blue-700 transition-colors duration-300 shadow-lg"
         >
           ติดต่อเรา
         </button>
@@ -82,8 +85,8 @@ const HomePage = () => {
 
       {/* Modal for Contact Info */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white rounded-lg p-8 w-80 relative shadow-lg">
+        <div className="fixed inset-0 bg-gray-800 bg-opacity-70 flex justify-center items-center z-50">
+          <div className="bg-white rounded-lg p-8 w-80 relative shadow-xl">
             <button
               className="absolute top-2 right-2 text-gray-400 hover:text-gray-600"
               onClick={handleModalToggle}
@@ -97,7 +100,9 @@ const HomePage = () => {
               </li>
               <li>
                 <strong>Facebook:</strong>{" "}
-                <Link href="https://facebook.com/yourpage">facebook.com/yourpage</Link>
+                <Link href="https://facebook.com/yourpage" className="text-blue-500 hover:underline">
+                  facebook.com/yourpage
+                </Link>
               </li>
               <li>
                 <strong>Phone:</strong> +123-456-7890
@@ -105,7 +110,7 @@ const HomePage = () => {
             </ul>
             <button
               onClick={handleModalToggle}
-              className="mt-6 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors duration-300 w-full"
+              className="mt-6 bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors duration-300 w-full"
             >
               Close
             </button>
@@ -129,9 +134,9 @@ const HomePage = () => {
         {plants.map((plant, index) => (
           <div
             key={index}
-            className="text-center px-4 transform transition-all hover:scale-105 duration-300 opacity-50 hover:opacity-100 relative"
+            className="text-center px-4 transform transition-all hover:scale-105 duration-300"
           >
-            <div className="relative rounded-lg overflow-hidden shadow-lg">
+            <div className="relative rounded-lg overflow-hidden shadow-lg bg-white transition-shadow duration-300 hover:shadow-xl">
               <Image
                 src={plant.image}
                 alt={plant.name}
@@ -139,20 +144,18 @@ const HomePage = () => {
                 height={320}
                 className="mx-auto object-cover"
               />
-
-              {/* Add the SOLD OUT ribbon for specific plant (e.g., Sunny Succulent) */}
               {plant.name === "Sunny Succulent" && (
-                <div className="absolute top-12 right-0 bg-red-600 text-white text-sm font-bold px-2 py-1 transform rotate-50 origin-top-right">
+                <div className="absolute top-12 right-0 bg-red-600 text-white text-sm font-bold px-2 py-1 transform rotate-45 origin-top-right">
                   SOLD OUT
                 </div>
               )}
             </div>
-            <p className="mt-4 text-lg font-medium text-gray-700">{plant.name}</p>
+            <p className="mt-4 text-lg font-medium text-gray-800">{plant.name}</p>
             <p className="font-bold text-lg text-green-600">${plant.price.toFixed(2)}</p>
             <p className="text-gray-500 line-through text-sm">
               ${plant.oldPrice.toFixed(2)}
             </p>
-            <button className="mt-4 bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 transition-colors duration-300">
+            <button className="mt-4 bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 transition-colors duration-300 flex items-center justify-center">
               <ShoppingCart className="inline-block mr-2" /> Add to Cart
             </button>
           </div>
